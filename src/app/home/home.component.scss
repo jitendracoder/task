@@ -1,0 +1,73 @@
+.table{
+    border-spacing: inherit;
+    color: #060606;
+    thead{
+        tr{
+            th{
+                font-size: 14px;
+                text-align: left;
+                padding: 10px 15px;
+                border-bottom: 1px solid #66666636;
+            }
+        }
+    }
+    tbody{
+        tr{
+            td{
+              text-align: left;
+              padding: 14px 15px;
+              border-bottom: 1px solid #66666636;
+
+            }
+
+            &:last-child{
+                td{
+                    border: none;
+                }
+            }
+        }
+    }
+}
+input{
+
+  padding: 6px 8px;
+  border: 1px solid rgba(102, 102, 102, 0.2117647059);
+  border-radius: 4px;
+}
+select{
+  padding: 6px 8px;
+  border: 1px solid rgba(102, 102, 102, 0.2117647059);
+  border-radius: 4px;
+}
+button{
+  padding: 6px 10px;
+  color: #fff;
+  background: #088cf5;
+  border: 1px solid #088cf5;
+  border-radius: 3px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.fa-user-plus{
+  padding: 5px 8px;
+  color: #fff;
+  background: #088cf5;
+  border: 1px solid #088cf5;
+  border-radius: 3px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.boxOff{
+    display: none;
+}
+.boxOn{
+    display: block;
+}
+.status{
+  letter-spacing: .5px;
+    border-radius: 4px;
+    color: #fff;
+    background: #008000b8;
+    padding: 5px 6px;
+    font-size: 13px;
+}

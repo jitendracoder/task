@@ -1,0 +1,67 @@
+<table class="table">
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Job Title</th>
+          <th>Age</th>
+          <th>Start Date</th>
+          <th> End Date</th>
+          <th>Action <i (click)="AddRecords()" class="fa fa-user-plus" aria-hidden="true"></i></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td><input type="text" placeholder="Search By Name" [(ngModel)]="name"> </td>
+          <td> <select [(ngModel)]="designation">
+                  <option>Manager</option>
+                  <option>Tech Lead</option>
+                  <option> Software Developer</option>
+                  <option>UI Designer</option>
+                  <option>Quality Analysis</option>
+              </select> </td>
+          <td> <input type="text" [(ngModel)]="age" placeholder="Age"> </td>
+          <td><input type="date" [(ngModel)]="dos"></td>
+          <td><input type="date" [(ngModel)]="doe"></td>
+          <td> <button (click)="filterData()"><i class="fa fa-filter" aria-hidden="true"></i></button> <button (click)="reset()"><i class="fa fa-times" aria-hidden="true"></i></button> </td>
+      </tr>
+      <tr *ngFor="let employee of employeeList | datafilter: nameValue : designationValue : ageValue : dosValue : doeValue; let index = index">
+          <td>{{index+1}}</td>
+          <td>{{employee.name}}</td>
+          <td>{{employee.designation}}</td>
+          <td>{{employee.age}}</td>
+          <td>{{employee.dos}}</td>
+          <td><span *ngIf="!employee.jobstatus">{{employee.doe}}</span> <span *ngIf="employee.jobstatus" class="status">Currently Working</span></td>
+          <td> <button (click)="updateData(index, employee)"><i class="fa fa-eye" aria-hidden="true"></i></button> <button (click)="deleteData(index)"><i class="fa fa-trash-o" aria-hidden="true"></i></button> </td>
+      </tr>
+  </tbody>
+</table>
+<div id="editSection" [ngClass]="currentData ? 'boxOn' : 'boxOff' ">
+  <table class="table">
+      <thead>
+          <tr>
+              <th>Name</th>
+              <th>Job Title</th>
+              <th>Age</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td><input type="text" placeholder="Searcg By Name" [(ngModel)]="nameup" value="{{currentData?.name}}"> </td>
+              <td> <select [(ngModel)]="designationup" value="{{currentData?.designation}}">
+                      <option>Manager</option>
+                      <option>Tech Lead</option>
+                      <option>Software Developer</option>
+                      <option>UI Designer</option>
+                      <option>Quality Analysis</option>
+                  </select> </td>
+              <td> <input type="text" [(ngModel)]="ageup" placeholder="Age" value="{{currentData?.age}}"> </td>
+              <td><input type="date" [(ngModel)]="dosup" value="{{currentData?.dos}}"></td>
+              <td><input type="date" [(ngModel)]="doeup" value="{{currentData?.doe}}"></td>
+          </tr>
+      </tbody>
+  </table> <button type="text" (click)="closeBox()">Cancel</button> <button type="text" (click)="saveData()">Save</button>
+</div>
